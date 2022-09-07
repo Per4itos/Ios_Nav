@@ -34,7 +34,7 @@ class InfoViewController: UIViewController {
             print("Yes")
         }
         let secondAction = UIAlertAction(title: "N", style: .destructive) { _ in
-            print("Nj")
+            print("No")
         }
         
         alertController.addAction(firstAction)

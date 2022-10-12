@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     let feedViewController = UINavigationController(rootViewController: FeedViewController())
-    let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+    let logInViewController = UINavigationController(rootViewController: LogInViewController())
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -22,7 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        tabBarController.viewControllers = [feedViewController, profileViewController]
+        
+        
+        tabBarController.viewControllers = [
+            feedViewController,
+            logInViewController]
         
         tabBarController.viewControllers?.enumerated().forEach {
             $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profile"
@@ -33,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

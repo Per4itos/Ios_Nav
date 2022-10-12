@@ -52,18 +52,17 @@ class ProfileHeaderView: UIView{
         return button
     }()
     
-    private lazy var newButton:  UIButton = {
-        let button2 = UIButton()
-        button2.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
-        button2.backgroundColor = .systemMint
-        button2.setTitleColor(.white, for: .normal)
-        button2.setTitle("1234", for: .normal)
-        button2.translatesAutoresizingMaskIntoConstraints = false
-//        button2.layer.masksToBounds = false
-        
-        return button2
-    }()
-    
+//    private lazy var newButton:  UIButton = {
+//        let button2 = UIButton()
+//        button2.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
+//        button2.backgroundColor = .systemMint
+//        button2.setTitleColor(.white, for: .normal)
+//        button2.setTitle("1234", for: .normal)
+//        button2.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return button2
+//    }()
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2
@@ -84,16 +83,13 @@ class ProfileHeaderView: UIView{
         self.addSubview(self.nameLable)
         self.addSubview(self.textLable)
         self.addSubview(self.statusButton)
-        self.addSubview(self.newButton)
+//        self.addSubview(self.newButton)
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            
             avatarImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3),
-            
             avatarImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3),
             avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            
             avatarImageView.rightAnchor.constraint(equalTo: rightAnchor),
             
             nameLable.topAnchor.constraint(equalTo: topAnchor, constant: 27),
@@ -101,29 +97,26 @@ class ProfileHeaderView: UIView{
             nameLable.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor),
             
             statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
-            
-            statusButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.0611247),
-            
+            statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
             statusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
             statusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             
             textLable.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
-            
             textLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
-            
-            newButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 0.0),
-            
-            newButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            
-            newButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.0611247),
-            
+
+//            newButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 0.0),
+//
+//            newButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
+//
+//            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+//
+//            newButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.0611247),
+
            
         ])
     }
     
-    func setup(with profile: Profile) {
+    func setup(with profile: Profile1) {
         self.textLable.text = profile.text
         self.nameLable.text = profile.name
         self.avatarImageView.image = profile.image

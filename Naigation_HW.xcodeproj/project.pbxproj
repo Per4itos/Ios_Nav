@@ -18,6 +18,10 @@
 		BC683E6E28C367C8002DD0FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC683E6D28C367C8002DD0FE /* InfoViewController.swift */; };
 		BC683E7228C369AF002DD0FE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC683E7128C369AF002DD0FE /* ProfileHeaderView.swift */; };
 		BC683E7428C36A75002DD0FE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC683E7328C36A75002DD0FE /* Profile.swift */; };
+		BC87040828DF19EF00DFC66C /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87040728DF19EE00DFC66C /* PostHeaderView.swift */; };
+		BCA2237828CE033C00504908 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA2237728CE033C00504908 /* CustomTableViewCell.swift */; };
+		BCA6373228C9F23400C65D52 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6373128C9F23400C65D52 /* LogInViewController.swift */; };
+		BCDFB08528DDE3DB00D283B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDFB08428DDE3DB00D283B8 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		BC683E6D28C367C8002DD0FE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		BC683E7128C369AF002DD0FE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		BC683E7328C36A75002DD0FE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		BC87040728DF19EE00DFC66C /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
+		BCA2237728CE033C00504908 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		BCA6373128C9F23400C65D52 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		BCDFB08428DDE3DB00D283B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +127,12 @@
 			children = (
 				BC683E3E28C36542002DD0FE /* Assets.xcassets */,
 				BC683E6728C366EC002DD0FE /* ProfileViewController.swift */,
+				BCDFB08428DDE3DB00D283B8 /* Post.swift */,
+				BC87040728DF19EE00DFC66C /* PostHeaderView.swift */,
+				BCA2237728CE033C00504908 /* CustomTableViewCell.swift */,
 				BC683E7128C369AF002DD0FE /* ProfileHeaderView.swift */,
 				BC683E7328C36A75002DD0FE /* Profile.swift */,
+				BCA6373128C9F23400C65D52 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -257,12 +269,16 @@
 			files = (
 				BC683E6A28C36769002DD0FE /* PostViewController.swift in Sources */,
 				BC683E7428C36A75002DD0FE /* Profile.swift in Sources */,
+				BC87040828DF19EF00DFC66C /* PostHeaderView.swift in Sources */,
+				BCA2237828CE033C00504908 /* CustomTableViewCell.swift in Sources */,
+				BCDFB08528DDE3DB00D283B8 /* Post.swift in Sources */,
 				BC683E3628C36540002DD0FE /* AppDelegate.swift in Sources */,
 				BC683E6828C366EC002DD0FE /* ProfileViewController.swift in Sources */,
 				BC683E7228C369AF002DD0FE /* ProfileHeaderView.swift in Sources */,
 				BC683E6C28C36776002DD0FE /* PostBarController.swift in Sources */,
 				BC683E6628C366D9002DD0FE /* FeedViewController.swift in Sources */,
 				BC683E6E28C367C8002DD0FE /* InfoViewController.swift in Sources */,
+				BCA6373228C9F23400C65D52 /* LogInViewController.swift in Sources */,
 				BC683E3828C36540002DD0FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

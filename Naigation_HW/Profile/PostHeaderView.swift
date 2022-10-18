@@ -37,7 +37,9 @@ class PostTableViewCell: UITableViewCell {
     
     private lazy var titleLable: UILabel = {
         let title = UILabel()
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         title.textColor = .black
+        title.numberOfLines = 2
         title.translatesAutoresizingMaskIntoConstraints = false
         
         return title
@@ -45,8 +47,9 @@ class PostTableViewCell: UITableViewCell {
     
     private lazy var text: UILabel = {
         let text = UILabel()
-        text.textColor = .gray
-        text.numberOfLines = 20
+        text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        text.textColor = .systemGray
+        text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
         
         return text
@@ -54,6 +57,8 @@ class PostTableViewCell: UITableViewCell {
     
     private lazy var someImage: UIImageView = {
         let someImage = UIImageView()
+        someImage.contentMode = .scaleAspectFit
+        someImage.backgroundColor = .black
         someImage.translatesAutoresizingMaskIntoConstraints = false
         
         return someImage
@@ -107,26 +112,30 @@ class PostTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.someImage)
         
         NSLayoutConstraint.activate([
-            self.titleLable.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5),
-            self.titleLable.leftAnchor.constraint(equalTo: self.contentView.leftAnchor,constant: 10),
+            self.titleLable.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+            self.titleLable.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             
-            self.someImage.topAnchor.constraint(equalTo: self.titleLable.bottomAnchor),
+            self.someImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 52),
             self.someImage.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             self.someImage.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
             
-            self.text.topAnchor.constraint(equalTo: self.someImage.bottomAnchor, constant: 10),
+            self.text.topAnchor.constraint(equalTo: self.someImage.bottomAnchor, constant: 16),
             self.text.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             self.text.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
             
+            self.lImage.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.lImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             self.lImage.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             
+            self.likes.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.likes.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             self.likes.leftAnchor.constraint(equalTo: self.lImage.rightAnchor),
             
+            self.vImage.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.vImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             self.vImage.rightAnchor.constraint(equalTo: self.views.leftAnchor),
             
+            self.views.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.views.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             self.views.rightAnchor.constraint(equalTo: self.contentView.rightAnchor)
         ])

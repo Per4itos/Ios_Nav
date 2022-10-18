@@ -19,7 +19,7 @@ class LogInViewController: UIViewController  {
     }()
     
     let imageVk = UIImage(named: "logovk" )
-    let pixelImeg = UIImage(named: "blue_pixel")
+    
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
@@ -47,7 +47,6 @@ class LogInViewController: UIViewController  {
         logInText.font = .systemFont(ofSize: 16, weight: .regular)
         logInText.autocapitalizationType = .none
         logInText.backgroundColor = .systemGray6
-        logInText.layer.cornerRadius = 10
         logInText.borderStyle = .roundedRect
         logInText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -61,7 +60,6 @@ class LogInViewController: UIViewController  {
         passwordText.autocapitalizationType = .none
         passwordText.isSecureTextEntry = true
         passwordText.backgroundColor = .systemGray6
-        passwordText.layer.cornerRadius = 10
         passwordText.borderStyle = .roundedRect
         passwordText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -70,11 +68,12 @@ class LogInViewController: UIViewController  {
     
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton()
+        
         logInButton.layer.cornerRadius = 10
         logInButton.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
         logInButton.setTitle("Log In", for: .normal)
         logInButton.setTitleColor(.white, for: .normal)
-        logInButton.setBackgroundImage(pixelImeg, for: UIControl.State.normal)
+        logInButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: UIControl.State.normal)
         logInButton.clipsToBounds = true
         logInButton.translatesAutoresizingMaskIntoConstraints = false
         

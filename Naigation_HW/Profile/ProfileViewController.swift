@@ -21,12 +21,8 @@ class ProfileViewController: UIViewController {
         
         return tableView
     }()
-    
-    private var viewModel: [PostTableViewCell.ViewModel] = [
-        PostTableViewCell.ViewModel(author: "horrorzone.ru", description: "Фильм также известен под названиями: The Swarm.Виржини живет на ферме со своими детьми и выращивает кузнечиков, чтобы делать из них муку. Но все меняется, когда она обнаруживает, что у саранчи - вкус к крови...", imageView: UIImage(named: "Roy"), likes: "123", views: "321", likesImage: UIImage(systemName: "heart.fill"), viewsImage: UIImage(systemName: "eye")),
-        PostTableViewCell.ViewModel(author: "sostav.ru", description: "«Нетология» провела первый масштабный ребрендинг — лепестков у лого-ромашки стало меньше", imageView: UIImage(named: "netology"), likes: "123", views: "321", likesImage: UIImage(systemName: "heart.fill"), viewsImage: UIImage(systemName: "eye")),
-        PostTableViewCell.ViewModel(author: "ivi.ru", description: "Фильм Один дома 2: Затерянный в Нью-Йорке смотреть онлайн.Культовая комедия Криса Коламбуса с Маколеем Калкиным в главной роли.", imageView: UIImage(named: "3"), likes: "123", views: "321", likesImage: UIImage(systemName: "heart.fill"), viewsImage: UIImage(systemName: "eye"))
-    ]
+    var post2 = viewModel
+
     
     private lazy var profileHeaderView: ProfileHeaderView = {
         let profileHeaderView = ProfileHeaderView()
@@ -67,7 +63,7 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.viewModel.count
+        self.post2.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! PostTableViewCell

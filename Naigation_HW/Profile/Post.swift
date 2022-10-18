@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
-struct Post3 {}
+struct Post3 {
+    
+}
     
 

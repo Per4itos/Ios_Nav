@@ -43,10 +43,12 @@ class LogInViewController: UIViewController  {
     
     private lazy var logInTextField: UITextField = {
         let logInText = UITextField()
+        logInText.placeholder = "Email or phone"
         logInText.textColor = .black
         logInText.font = .systemFont(ofSize: 16, weight: .regular)
         logInText.autocapitalizationType = .none
         logInText.backgroundColor = .systemGray6
+        logInText.tintColor = .darkGray
         logInText.borderStyle = .roundedRect
         logInText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -55,11 +57,13 @@ class LogInViewController: UIViewController  {
     
     private lazy var passwordTextField: UITextField = {
         let passwordText = UITextField()
+        passwordText.placeholder = "Password"
         passwordText.textColor = .black
         passwordText.font = .systemFont(ofSize: 16, weight: .regular)
         passwordText.autocapitalizationType = .none
         passwordText.isSecureTextEntry = true
         passwordText.backgroundColor = .systemGray6
+        passwordText.tintColor = .darkGray
         passwordText.borderStyle = .roundedRect
         passwordText.translatesAutoresizingMaskIntoConstraints = false
         

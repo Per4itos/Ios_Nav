@@ -124,12 +124,12 @@
 			isa = PBXGroup;
 			children = (
 				BC683E3E28C36542002DD0FE /* Assets.xcassets */,
+				BCA6373128C9F23400C65D52 /* LogInViewController.swift */,
 				BC683E6728C366EC002DD0FE /* ProfileViewController.swift */,
-				BCDFB08428DDE3DB00D283B8 /* Post.swift */,
 				BC87040728DF19EE00DFC66C /* PostHeaderView.swift */,
 				BC683E7128C369AF002DD0FE /* ProfileHeaderView.swift */,
 				BC683E7328C36A75002DD0FE /* Profile.swift */,
-				BCA6373128C9F23400C65D52 /* LogInViewController.swift */,
+				BCDFB08428DDE3DB00D283B8 /* Post.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

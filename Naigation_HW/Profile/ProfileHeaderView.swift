@@ -41,8 +41,8 @@ class ProfileHeaderView: UIView{
         button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Show status", for: .normal)
-        button.layer.cornerRadius = 10
+        button.setTitle("Show status", for: UIControl.State.normal)
+        button.layer.cornerRadius = 4
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.7
         button.layer.shadowRadius = 4
@@ -52,16 +52,16 @@ class ProfileHeaderView: UIView{
         return button
     }()
     
-    private lazy var newButton:  UIButton = {
-        let button2 = UIButton()
-        button2.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
-        button2.backgroundColor = .systemMint
-        button2.setTitleColor(.white, for: .normal)
-        button2.setTitle("newButton", for: .normal)
-        button2.translatesAutoresizingMaskIntoConstraints = false
-
-        return button2
-    }()
+//    private lazy var newButton:  UIButton = {
+//        let button2 = UIButton()
+//        button2.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
+//        button2.backgroundColor = .systemMint
+//        button2.setTitleColor(.white, for: .normal)
+//        button2.setTitle("newButton", for: .normal)
+//        button2.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return button2
+//    }()
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -83,7 +83,7 @@ class ProfileHeaderView: UIView{
         self.addSubview(self.nameLable)
         self.addSubview(self.textLable)
         self.addSubview(self.statusButton)
-        self.addSubview(self.newButton)
+//        self.addSubview(self.newButton)
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
@@ -104,11 +104,11 @@ class ProfileHeaderView: UIView{
             textLable.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
             textLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
 
-            newButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-
-            newButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
-
-            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+//            newButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+//
+//            newButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+//
+//            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
            
         ])
     }

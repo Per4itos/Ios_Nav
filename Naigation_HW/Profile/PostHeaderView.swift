@@ -100,9 +100,7 @@ class PostTableViewCell: UITableViewCell {
         self.text.text = text
     }
     
-    
     private func setupView() {
-        
         self.contentView.addSubview(self.lImage)
         self.contentView.addSubview(self.vImage)
         self.contentView.addSubview(self.titleLable)
@@ -112,6 +110,7 @@ class PostTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.someImage)
         
         NSLayoutConstraint.activate([
+            
             self.titleLable.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
             self.titleLable.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             
@@ -133,11 +132,12 @@ class PostTableViewCell: UITableViewCell {
             
             self.vImage.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.vImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.vImage.rightAnchor.constraint(equalTo: self.views.leftAnchor),
+            self.vImage.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
             
             self.views.topAnchor.constraint(equalTo: self.text.bottomAnchor, constant: 16),
             self.views.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.views.rightAnchor.constraint(equalTo: self.contentView.rightAnchor)
+            self.views.rightAnchor.constraint(equalTo: self.vImage.leftAnchor)
         ])
     }
 }
+

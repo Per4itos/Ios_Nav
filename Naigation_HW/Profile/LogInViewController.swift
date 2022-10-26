@@ -8,9 +8,7 @@
 import UIKit
 
 class LogInViewController: UIViewController  {
-    
-    
-    
+
     private lazy var scroleView: UIScrollView = {
         let scroleView = UIScrollView()
         scroleView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,9 +18,9 @@ class LogInViewController: UIViewController  {
     
     let imageVk = UIImage(named: "logovk" )
     
-    
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
+        
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = imageVk
         
@@ -31,6 +29,7 @@ class LogInViewController: UIViewController  {
     
     private lazy var textStackView: UIStackView = {
         let textStackView = UIStackView()
+       
         textStackView.distribution = .fillEqually
         textStackView.axis = .vertical
         textStackView.layer.borderColor = UIColor.lightGray.cgColor
@@ -43,6 +42,7 @@ class LogInViewController: UIViewController  {
     
     private lazy var logInTextField: UITextField = {
         let logInText = UITextField()
+       
         logInText.placeholder = "Email or phone"
         logInText.textColor = .black
         logInText.font = .systemFont(ofSize: 16, weight: .regular)
@@ -57,6 +57,7 @@ class LogInViewController: UIViewController  {
     
     private lazy var passwordTextField: UITextField = {
         let passwordText = UITextField()
+      
         passwordText.placeholder = "Password"
         passwordText.textColor = .black
         passwordText.font = .systemFont(ofSize: 16, weight: .regular)
@@ -84,13 +85,11 @@ class LogInViewController: UIViewController  {
         return logInButton
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpViews()
         self.setupGesture()
-//        self.tabBarController?.tabBar.isHidden = true
-        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

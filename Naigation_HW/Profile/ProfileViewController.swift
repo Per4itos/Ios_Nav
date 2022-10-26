@@ -11,18 +11,19 @@ class ProfileViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "Header")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
     }()
     var post2 = viewModel
-
+    var post3 = posts
+    
     
     private lazy var profileHeaderView: ProfileHeaderView = {
         let profileHeaderView = ProfileHeaderView()
@@ -32,6 +33,7 @@ class ProfileViewController: UIViewController {
     }()
     
     private let profile = Profile1(name: "Hipster Cat", text: "Waiting for something...")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,7 @@ class ProfileViewController: UIViewController {
             self.profileHeaderView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             self.profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
             
+            
             self.tableView.topAnchor.constraint(equalTo: self.profileHeaderView.bottomAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
@@ -62,20 +65,58 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.post2.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! PostTableViewCell
-        let post = viewModel[indexPath.row]
-        cell.setup(with: post)
+        if section == 0 {
+            return 1
+        }
         
-        return cell
+        
+        return self.post2.count
+        
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == .zero {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! PhotosTableViewCell
+            let post = post3[indexPath.row]
+            cell.setup(with: post)
+            
+            return cell
+        }else {
+            
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! PostTableViewCell
+            let post = viewModel[indexPath.row]
+            
+            cell.setup(with: post)
+            
+            return cell
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 550
+        if indexPath.section == .zero {
+            return 150.0
+        }
+        return 550.0
+        
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == .zero {
+            let destination = PhotosViewController()
+            navigationController?.pushViewController(destination, animated: true)
+        }
+    }
+    
 }
+
+
 
 
 

@@ -7,8 +7,13 @@
 
 import UIKit
 
-struct Profile {
+
+struct Profile1 {
     let name: String
     let text: String
     let image = UIImage(named: "cat")
 }
+
+
+
+   

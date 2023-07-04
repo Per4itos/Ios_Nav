@@ -5,15 +5,11 @@
 //  Created by macOS on 21.10.2022.
 //
 
-import Foundation
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+ class CustomCollectionViewCell: UICollectionViewCell {
 
-    struct Photos {
-        let image0: UIImage?
-        
-    }
+    var photos = [UIImage]()
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,6 +20,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.addSubview(imageView)
         self.setupView()
     }
     
@@ -31,8 +28,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with photo: Photos) {
-        self.imageView.image = photo.image0
+    func prhotoConfige(photo: UIImage) {
+        self.imageView.image = photo
     }
     
     private func setupView() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileHeaderView: UIView{
+class ProfileHeaderView: UITableViewHeaderFooterView {
     
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -52,16 +52,7 @@ class ProfileHeaderView: UIView{
         return button
     }()
     
-//    private lazy var newButton:  UIButton = {
-//        let button2 = UIButton()
-//        button2.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
-//        button2.backgroundColor = .systemMint
-//        button2.setTitleColor(.white, for: .normal)
-//        button2.setTitle("newButton", for: .normal)
-//        button2.translatesAutoresizingMaskIntoConstraints = false
-//
-//        return button2
-//    }()
+
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -69,8 +60,8 @@ class ProfileHeaderView: UIView{
         self.avatarImageView.clipsToBounds = true
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.setupView()
     }
     
@@ -83,18 +74,15 @@ class ProfileHeaderView: UIView{
         self.addSubview(self.nameLable)
         self.addSubview(self.textLable)
         self.addSubview(self.statusButton)
-//        self.addSubview(self.newButton)
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3),
-            avatarImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 150),
             avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            avatarImageView.rightAnchor.constraint(equalTo: rightAnchor),
             
             nameLable.topAnchor.constraint(equalTo: topAnchor, constant: 27),
             nameLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
-            nameLable.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor),
             
             statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
             statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
@@ -104,12 +92,6 @@ class ProfileHeaderView: UIView{
             textLable.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
             textLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
 
-//            newButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-//
-//            newButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
-//
-//            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-           
         ])
     }
     

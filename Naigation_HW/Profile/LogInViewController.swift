@@ -20,7 +20,7 @@ class LogInViewController: UIViewController  {
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
-        
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = imageVk
         

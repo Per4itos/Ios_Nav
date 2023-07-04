@@ -6,18 +6,19 @@
 //
 
 import UIKit
+import StorageService
 
 
-class PhotosTableViewCell: UITableViewCell {
+ public class PhotosTableViewCell: UITableViewCell {
     
-    struct ViewPhoto {
-        let lable: String = "Photo"
-        let image1: UIImage? = UIImage(named: "image0")
-        let image2: UIImage? = UIImage(named: "image1")
-        let image3: UIImage? = UIImage(named: "image2")
-        let image4: UIImage? = UIImage(named: "image3")
-        
-    }
+//    struct ViewPhoto {
+//        let lable: String = "Photo"
+//        let image1: UIImage? = UIImage(named: "image0")
+//        let image2: UIImage? = UIImage(named: "image1")
+//        let image3: UIImage? = UIImage(named: "image2")
+//        let image4: UIImage? = UIImage(named: "image3")
+//        
+//    }
     
     private lazy var lableName: UILabel = {
         let lable = UILabel()
@@ -38,9 +39,11 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var photoImage: UIImageView = {
         let photo = UIImageView()
-        photo.translatesAutoresizingMaskIntoConstraints = false
+        photo.backgroundColor = .black
         photo.clipsToBounds = true
         photo.layer.cornerRadius = 6
+        photo.translatesAutoresizingMaskIntoConstraints = false
+
         return photo
     }()
     
@@ -48,7 +51,7 @@ class PhotosTableViewCell: UITableViewCell {
         let photo = UIImageView()
         photo.clipsToBounds = true
         photo.layer.cornerRadius = 6
-        
+        photo.backgroundColor = .black
         photo.translatesAutoresizingMaskIntoConstraints = false
         
         return photo
@@ -56,18 +59,21 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var photoImage3: UIImageView = {
         let photo = UIImageView()
-        photo.translatesAutoresizingMaskIntoConstraints = false
         photo.clipsToBounds = true
         photo.layer.cornerRadius = 6
+        photo.backgroundColor = .black
+        photo.translatesAutoresizingMaskIntoConstraints = false
+
         
         return photo
     }()
     
     private lazy var photoImage4: UIImageView = {
         let photo = UIImageView()
-        photo.translatesAutoresizingMaskIntoConstraints = false
+        photo.backgroundColor = .black
         photo.clipsToBounds = true
         photo.layer.cornerRadius = 6
+        photo.translatesAutoresizingMaskIntoConstraints = false
         
         return photo
     }()
@@ -81,12 +87,12 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with viewPhoto: ViewPhoto) {
-        self.photoImage.image = viewPhoto.image1
-        self.photoImage2.image = viewPhoto.image2
-        self.photoImage3.image = viewPhoto.image3
-        self.photoImage4.image = viewPhoto.image4
-        self.lableName.text = viewPhoto.lable
+      func setup(with postHeader: PostHeader) {
+         self.photoImage.image = postHeader.image1
+        self.photoImage2.image = postHeader.image2
+        self.photoImage3.image = postHeader.image3
+        self.photoImage4.image = postHeader.image4
+        self.lableName.text = postHeader.lable
     }
     
     private func setupView() {

@@ -6,19 +6,9 @@
 //
 
 import UIKit
+import StorageService
 
-class PostTableViewCell: UITableViewCell {
-    
-    struct ViewModel {
-        let author: String
-        let description: String
-        let imageView: UIImage?
-        let likes: String?
-        let views: String?
-        let likesImage: UIImage?
-        let viewsImage: UIImage?
-        
-    }
+public class PostTableViewCell: UITableViewCell {
     
     private lazy var lImage: UIImageView = {
         
@@ -86,14 +76,14 @@ class PostTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with viewModel: ViewModel) {
-        self.titleLable.text = viewModel.author
-        self.text.text = viewModel.description
-        self.someImage.image = viewModel.imageView
-        self.likes.text = viewModel.likes
-        self.views.text = viewModel.views
-        self.lImage.image = viewModel.likesImage
-        self.vImage.image = viewModel.viewsImage
+   public func setup(with post: Post) {
+       self.titleLable.text = post.author
+        self.text.text = post.description
+        self.someImage.image = post.imageView
+        self.likes.text = post.likes
+        self.views.text = post.views
+        self.lImage.image = post.likesImage
+        self.vImage.image = post.viewsImage
     }
     
     func changeText(_ text: String) {
@@ -113,6 +103,7 @@ class PostTableViewCell: UITableViewCell {
             
             self.titleLable.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
             self.titleLable.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
+            self.titleLable.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
             
             self.someImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 52),
             self.someImage.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),

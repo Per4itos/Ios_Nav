@@ -18,7 +18,7 @@ class PhotosViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return layout
     }()
     
@@ -31,7 +31,6 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
-    var dataSource2 = photos
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,15 +59,15 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataSource2.count
+        return Photos.shared.examples.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCollectionViewCell
-        let photo = dataSource2[indexPath.row]
-        cell.setup(with: photo)
+        cell.backgroundColor = .gray
         cell.clipsToBounds = true
+        cell.prhotoConfige(photo: Photos.shared.examples[indexPath.item])
         
         return cell
     }

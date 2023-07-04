@@ -11,15 +11,7 @@ import StorageService
 
  public class PhotosTableViewCell: UITableViewCell {
     
-//    struct ViewPhoto {
-//        let lable: String = "Photo"
-//        let image1: UIImage? = UIImage(named: "image0")
-//        let image2: UIImage? = UIImage(named: "image1")
-//        let image3: UIImage? = UIImage(named: "image2")
-//        let image4: UIImage? = UIImage(named: "image3")
-//        
-//    }
-    
+
     private lazy var lableName: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false

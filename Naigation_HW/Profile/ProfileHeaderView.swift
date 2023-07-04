@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
+    lazy var box = UIView()
+
+   
+     
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.layer.borderWidth = 3
@@ -75,24 +80,26 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         self.addSubview(self.textLable)
         self.addSubview(self.statusButton)
         
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 150),
-            avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            
-            nameLable.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-            nameLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
-            
-            statusButton.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 16),
-            statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            statusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            statusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
-            
-            textLable.bottomAnchor.constraint(equalTo: self.statusButton.topAnchor, constant: -34),
-            textLable.leftAnchor.constraint(equalTo: self.avatarImageView.rightAnchor),
-
-        ])
+        avatarImageView.snp.makeConstraints{ make in
+            make.width.height.equalTo(150)
+            make.top.equalTo(self).inset(16)
+            make.left.equalTo(self).inset(16)
+        }
+        nameLable.snp.makeConstraints { make in
+            make.top.equalTo(self).inset(27)
+            make.left.equalTo(avatarImageView).inset(156)
+        }
+        statusButton.snp.makeConstraints { make in
+            make.width.equalTo(350)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self).inset(16)
+            make.centerX.equalTo(self)
+        }
+        textLable.snp.makeConstraints { make in
+            make.bottom.equalTo(avatarImageView).inset(34)
+            make.left.equalTo(avatarImageView).inset(156)
+        }
+        
     }
     
     func setup(with profile: Profile1) {

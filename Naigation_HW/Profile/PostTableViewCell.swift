@@ -7,6 +7,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 public class PostTableViewCell: UITableViewCell {
     
@@ -47,6 +48,7 @@ public class PostTableViewCell: UITableViewCell {
     
     private lazy var someImage: UIImageView = {
         let someImage = UIImageView()
+        
         someImage.contentMode = .scaleAspectFit
         someImage.backgroundColor = .black
         someImage.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +69,10 @@ public class PostTableViewCell: UITableViewCell {
         return views
     }()
     
+    
+    
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -84,11 +90,18 @@ public class PostTableViewCell: UITableViewCell {
         self.views.text = post.views
         self.lImage.image = post.likesImage
         self.vImage.image = post.viewsImage
+       
+       var filtre = ImageProcessor()
+       filtre.processImage(sourceImage: post.imageView!, filter: .colorInvert) { image in
+           self.someImage.image = image
+       }
+      
     }
     
     func changeText(_ text: String) {
         self.text.text = text
     }
+
     
     private func setupView() {
         self.contentView.addSubview(self.lImage)
